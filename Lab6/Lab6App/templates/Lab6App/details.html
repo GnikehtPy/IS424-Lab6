@@ -1,0 +1,27 @@
+<!DOCTYPE html lang="en">
+
+<body>
+
+{{student}}
+
+<form method="post">
+    {% csrf_token %}
+    <select name="course">
+        {% for course in avail_courses %}
+            <option value="{{course.course_id}}">{{course}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit"value="Add Course">
+</form>
+<ol>
+    {% for course in reg_courses %}
+    <li>{{course}}</li>
+    {% endfor %}
+</ol>
+<h3><a href="{% url 'Lab6App:students' %}">Add Students</a></h3>
+
+<h3><a href="{% url 'Lab6App:courses' %}">Add Courses</a></h3>
+
+</body>
+
+</html>
